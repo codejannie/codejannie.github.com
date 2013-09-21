@@ -105,26 +105,48 @@
     /* ---------------------------------------------------- */  
     /* TIC-TAC-TOE GAMEBOARD
     /* ---------------------------------------------------- */  
-
-    #game-board {
-	width: 100%;
+    #game-title {
+	height: 100px;
+    }
+    #game-robot {
+	width: 40%;
 	float: left;
+    }
+    #game-board {
+	width: 60%;
+	float: right;
     } 
+    @media screen and (max-width: 768px) {
+      #game-robot,
+      #game-board {
+	width: 100%;
+      }
+    }
     .pos {
 	float: left;
 	width: 33%;
-	height: 50px;
+	height: 40px;
+	padding-top: 10px;
 	background: white;
+	font-size: 50px;
+	text-align: center;
+	color: gray;
     }
     .pos:hover {
-	background: lightgrey;
+	background: #f5f5f5;
 	cursor: pointer;
+    }
+    .pos.player {
+	color: #225D8E;
+    }
+    .pos.ai {
+	color: #68093D;
     }
     .row-0,
     .row-1 {
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid #c2c2c2;
     }
     .col-0,
     .col-1 {
-	border-right: 1px solid grey;
+	border-right: 1px solid #c2c2c2;
     }
