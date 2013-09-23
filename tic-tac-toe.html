@@ -1,38 +1,39 @@
 <html>
+	<head>
+		<title>Tic-tac-toe Robot</title>
+		<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="tic-tac-toe.js"></script>
+	</head>
 
-<head>
-<title>Tic-tac-toe Robot</title>
-<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-</head>
+	<body>
+		<div id="header">
+			<div id="header-wrapper">
+				<span id="logo"><a href="index.html">Code Jannie</a></span>
+				<ul id="nav">  
+					<li><a href="index.html#about">About</a></li>  
+					<li><a href="index.html#projects">Projects</a></li>  
+					<li><a href="index.html#resources">Resources</a></li>  
+					<li><a href="index.html#contact">Contact</a></li>  
+				</ul> 
+			</div>
+		</div>
 
-<body>
-<div id="header">
-<div id="header-wrapper">
-<span id="logo"><a href="index.html">Code Jannie</a></span>
-  <ul id="nav">  
-    <li><a href="index.html#about">About</a></li>  
-    <li><a href="index.html#projects">Projects</a></li>  
-    <li><a href="index.html#resources">Resources</a></li>  
-    <li><a href="index.html#contact">Contact</a></li>  
-  </ul> 
-</div>
-</div>
-
-<div id="main">
-<div id="main-wrapper">
-<div id="game-title"><h2>Tic-tac-toe Robot</h2></div>
-<div id="game-robot"></div>
-<div id="game-board"> 
-<span class="pos row-0 col-0 ai pos-0-0">x</span>
-<span class="pos row-0 col-1 player pos-0-1">o</span>
-<span class="pos row-0 col-2 pos-0-2"></span>
-<span class="pos row-1 col-0 pos-1-0"></span>
-<span class="pos row-1 col-1 pos-1-1"></span>
-<span class="pos row-1 col-2 pos-1-2"></span>
-<span class="pos row-2 col-0 pos-2-0"></span>
-<span class="pos row-2 col-1 pos-2-1"></span>
-<span class="pos row-2 col-2 pos-2-2"></span>
-</div>
-</div>
-</div>
+		<div id="main">
+			<div id="main-wrapper">
+				<div id="game-title"><h2>Tic-tac-toe Robot</h2></div>
+				<div id="game-robot"></div>
+				<div id="game-board"> 
+					<span id="pos-0" class="pos row-0 col-0" onclick="playerTurn(this)"></span>
+					<span id="pos-1" class="pos row-0 col-1" onclick="playerTurn(this)"></span>
+					<span id="pos-2" class="pos row-0 col-2" onclick="playerTurn(this)"></span>
+					<span id="pos-3" class="pos row-1 col-0" onclick="playerTurn(this)"></span>
+					<span id="pos-4" class="pos row-1 col-1" onclick="playerTurn(this)"></span>
+					<span id="pos-5" class="pos row-1 col-2" onclick="playerTurn(this)"></span>
+					<span id="pos-6" class="pos row-2 col-0" onclick="playerTurn(this)"></span>
+					<span id="pos-7" class="pos row-2 col-1" onclick="playerTurn(this)"></span>
+					<span id="pos-8" class="pos row-2 col-2" onclick="playerTurn(this)"></span>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
