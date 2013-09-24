@@ -1,11 +1,19 @@
 var gameBoard = [0,0,0,0,0,0,0,0,0];
 
+function playerFirst() {
+	document.getElementById("game-board").style.display = 'block';
+}
+
+function aiFirst() {
+	document.getElementById("game-board").style.display = 'block';
+}
+
 function playerTurn(obj) {
 	if (isEmptySquare(obj)) {
   	obj.innerHTML="o";
 		obj.className += " player";
-		updateGameBoard(obj.id);
-		aiTurn();
+		updateGameBoard(obj.id, 1);
+		setTimeout(aiTurn, 500);
 		var winner = checkWin();
 		if (winner == 1) {
 			alert("I win!");
@@ -21,13 +29,21 @@ function playerTurn(obj) {
 function isEmptySquare(elem) {
 	return ((" " + elem.className + " " ).indexOf( " player " ) < 0) && ((" " + elem.className + " " ).indexOf( " ai " ) < 0);
 }
-function updateGameBoard(pos) {
+
+function updateGameBoard(pos, player) {
 	var num = pos.charAt(4);
-	gameBoard[num] = 1;
+	gameBoard[num] = player;
 }
 
 function aiTurn() {
-  
+	var pos = findAiPos();
+	document.getElementById("pos-"+pos).innerHTML="x";
+	document.getElementById("pos-"+pos).className += " ai";
+	updateGameBoard(pos, 2);
+}
+
+function findAiPos() {
+	return 0;
 }
 
 function checkWin() {

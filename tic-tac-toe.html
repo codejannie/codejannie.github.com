@@ -20,7 +20,11 @@
 
 		<div id="main">
 			<div id="main-wrapper">
-				<div id="game-title"><h2>Tic-tac-toe Robot</h2></div>
+				<div id="game-title">
+					<h2>Tic-tac-toe Robot</h2>
+					<button onClick="playerFirst()">Move First</button>
+					<button onClick="aiFirst()">Move Second</button>
+				</div>
 				<div id="game-robot"></div>
 				<div id="game-board"> 
 					<span id="pos-0" class="pos row-0 col-0" onclick="playerTurn(this)"></span>

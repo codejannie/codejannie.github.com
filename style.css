@@ -9,11 +9,24 @@ body {
 	margin: 0;
 }  
 #header,
+button,
 body h2 {
 	font-family: Courier, sans-serif; 
 	letter-spacing: 1px;
 	color: gray;
 	text-transform: uppercase;
+}
+#logo,
+#nav,
+button,
+body h2 {
+	margin: 0 1%;
+}
+h2 {
+	padding: 30px 0;
+}
+p {
+	margin: 0 0 10px 0;
 }
 #header,
 #main {
@@ -50,13 +63,17 @@ a:hover {
 }
 #header ul {
 	float: right;
-	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 #header ul li {
 	float: left;
 	padding-left: 12px;
+}
+@media screen and (max-width: 400px) {
+	#header ul li {
+		width: 97%;
+	}
 }
 /* ---------------------------------------------------- */  
 /* SLIDESHOW 
@@ -94,7 +111,7 @@ visibility: hidden;}
 
 #slideshow .slides li {  
 	width: 21%;  
-	padding: 2%;
+	padding: 0 2%;
 	float: left;  
 }  
 
@@ -108,18 +125,29 @@ visibility: hidden;}
 #game-title {
 	height: 100px;
 }
+button {
+	width:30%;
+	border: 0;
+	padding: 10px ;
+	float: left;
+}
 #game-robot {
 	width: 40%;
 	float: left;
 }
 #game-board {
+	display: none;
 	width: 60%;
 	float: right;
+	margin-top: 30px;
 } 
 @media screen and (max-width: 768px) {
 	#game-robot,
 	#game-board {
 		width: 100%;
+	}
+	button {
+		width: 48%;
 	}
 }
 .pos {
