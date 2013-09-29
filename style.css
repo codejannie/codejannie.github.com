@@ -130,6 +130,7 @@ button {
 	border: 0;
 	padding: 10px ;
 	float: left;
+	cursor: pointer;
 }
 #game-robot {
 	width: 40%;
