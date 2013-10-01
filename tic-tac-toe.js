@@ -79,6 +79,9 @@ function checkWinner() {
 		updateStats();
 		clearBoard();
 	}
+	if (boardFull()) {
+		tieMessage();
+	}
 }
 
 function isEmptySquare(elem) {
@@ -93,12 +96,7 @@ function updateGameBoard(pos, who) {
 function aiTurn() {
 	var pos = findAiPos();
 	if (pos == -1) {
-		robotMessage("We tied! How dare you defy my greatness?!");
-		var numTies = window.localStorage.getItem("numTies");
-		numTies++;
-		window.localStorage.setItem("numTies", numTies);
-		updateStats();
-		clearBoard();
+		tieMessage();
 	}
 	document.getElementById("pos-"+pos).innerHTML="x";
 	document.getElementById("pos-"+pos).className += " ai";
@@ -106,6 +104,24 @@ function aiTurn() {
 	turnNumber++;
 	robotMessage(robotMessages[Math.floor(Math.random()*robotMessages.length)]);
 	setTimeout(checkWinner, 900);
+}
+
+function boardFull() {
+	for (var i = 0; i<gameBoard.length; i++) {
+		if (gameBoard[i] == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function tieMessage() {
+	robotMessage("We tied! How dare you defy my greatness?!");
+	var numTies = window.localStorage.getItem("numTies");
+	numTies++;
+	window.localStorage.setItem("numTies", numTies);
+	updateStats();
+	clearBoard();
 }
 
 function findAiPos() {
