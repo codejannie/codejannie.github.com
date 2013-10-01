@@ -49,8 +49,14 @@ function robotMessage(message) {
 
 function updateStats() {
 	var wins = window.localStorage.getItem("numWins");
+	if (!wins) {
+		wins = 0;
+	}
 	document.getElementById("win-num").innerHTML=wins;
 	var ties = window.localStorage.getItem("numTies");
+	if (!ties) {
+		wins = 0;
+	}
 	document.getElementById("tie-num").innerHTML=ties;
 }
 
