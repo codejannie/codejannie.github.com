@@ -9,6 +9,7 @@ body {
 }  
 #header,
 button,
+#robot-body,
 body h2 {
 	font-family: Courier, sans-serif; 
 	letter-spacing: 1px;
@@ -125,8 +126,9 @@ button {
 	padding: 10px ;
 	float: left;
 	cursor: pointer;
-	background: steelblue;
+	background: #225D8E;
 	color: white;
+	font-weight: bold;
 }
 #game-robot {
 	width: 40%;
@@ -148,7 +150,7 @@ button {
   display: block;
   position: absolute;
 	background: white;
-	box-shadow: 5px 5px 3px -1px lightgrey;
+	box-shadow: 3px 3px 2px -1px lightgrey;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -179,7 +181,6 @@ button {
 	height: 200px;
 	margin: 0 25%;
 	background: grey;
-	font-family: cursive;
 }
 .robot-arm {
 	float: left;
