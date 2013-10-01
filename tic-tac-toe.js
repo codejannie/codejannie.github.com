@@ -16,14 +16,42 @@ var center = 4;
 var player = 1;
 var ai = 2;
 var turnNumber = 1;
+var robotMessages = ["My mom plays better tic-tac-toe than you do. And she's a Commodore!",
+ "You're not a complete idiot... some parts are missing.", 
+"It gives me a headache just trying to think down to your level.", "You're like a trained ape, only without the training.", "Go away or I will replace you with a very small shell script.", "You're so dense, light bends around you.", "Why don't you try selling your brain? I bet you'd get a lot of money because it's just slightly used.", "Wow! You think like a computer!... when it's off!", "ALL YOUR BASE ARE BELONG TO US"];
+
+document.addEventListener("DOMContentLoaded", function() {
+    updateStats();
+}, false);
 
 function playerFirst() {
+	clearBoard();
 	document.getElementById("game-board").style.display = 'block';
 }
 
 function aiFirst() {
+	clearBoard();
 	document.getElementById("game-board").style.display = 'block';
 	aiTurn();
+}
+
+function robotMessage(message) {
+	document.getElementById("robot-message").innerHTML=message;
+	if (document.getElementById("arm-1").className == "robot-arm arm-down") {
+		document.getElementById("arm-1").className = "robot-arm arm-up";
+		document.getElementById("arm-2").className = "robot-arm arm-up";
+	}
+	else {
+		document.getElementById("arm-1").className = "robot-arm arm-down";
+		document.getElementById("arm-2").className = "robot-arm arm-down";
+	}
+}
+
+function updateStats() {
+	var wins = window.localStorage.getItem("numWins");
+	document.getElementById("win-num").innerHTML=wins;
+	var ties = window.localStorage.getItem("numTies");
+	document.getElementById("tie-num").innerHTML=ties;
 }
 
 function playerTurn(obj) {
@@ -33,15 +61,23 @@ function playerTurn(obj) {
 		updateGameBoard(obj.id, player);
 		turnNumber++;
 		setTimeout(aiTurn, 500);
-		var winner = checkWin();
-		if (winner == player) {
-			alert("I win!");
-			clearBoard();
-		}
-		if (winner == ai) {
-			alert("Foils! You win!");
-			clearBoard();
-		}
+		checkWinner();
+	}
+}
+
+function checkWinner() {
+	var winner = checkWin();
+	if (winner == player) {
+		robotMessage("You win! I cannot believe it! Impossible!");
+		clearBoard();
+	}
+	if (winner == ai) {
+		robotMessage("I win! Like a boss.");
+		var numWins = window.localStorage.getItem("numWins");
+		numWins++;
+		window.localStorage.setItem("numWins", numWins);
+		updateStats();
+		clearBoard();
 	}
 }
 
@@ -56,52 +92,53 @@ function updateGameBoard(pos, who) {
 
 function aiTurn() {
 	var pos = findAiPos();
+	if (pos == -1) {
+		robotMessage("We tied! How dare you defy my greatness?!");
+		var numTies = window.localStorage.getItem("numTies");
+		numTies++;
+		window.localStorage.setItem("numTies", numTies);
+		updateStats();
+		clearBoard();
+	}
 	document.getElementById("pos-"+pos).innerHTML="x";
 	document.getElementById("pos-"+pos).className += " ai";
 	updateGameBoard("pos-"+pos, ai);
 	turnNumber++;
+	robotMessage(robotMessages[Math.floor(Math.random()*robotMessages.length)]);
+	setTimeout(checkWinner, 900);
 }
 
 function findAiPos() {
 	if (turnNumber == 1) {
-		alert("turn 1 random corner");
 		return randomAvailableSquare(corners);
 	}
 	var winMove = findWinMove(ai);
 	if (winMove != -1) {
-		alert("win move");
 		return winMove;
 	}
 	var blockMove = findWinMove(player);
 	if (blockMove != -1) {
-		alert("block move");
 		return blockMove;
 	}
 	var forkMove = findForkMove(ai);
 	if (forkMove != -1) {
-		alert("fork move");
 		return forkMove;
 	}
 	var blockForkMove = findBlockForkMove();
 	if (blockForkMove != -1) {
-		alert("block fork move");
 		return blockForkMove;
 	}
 	if (gameBoard[center] == 0) {
-		alert("center move");
 		return center;
 	}
 	var oppositeCorner = findOppositeCorner();
 	if (oppositeCorner != -1) {
-		alert("opp corner move");
 		return oppositeCorner;
 	}
-	var emptyCorner = randomAvailableSquare(corners)
+	var emptyCorner = randomAvailableSquare(corners);
 	if (emptyCorner != -1) {
-		alert("empty corner move");
 		return emptyCorner;
 	}
-	alert("random move (last)");
 	return randomAvailableSquare(all);
 }
 
@@ -212,6 +249,9 @@ function randomAvailableSquare(set) {
 			emptyIndex++;
 		}
 	}
+	if (emptySquares.length == 0) {
+		return -1;
+	}
 	return emptySquares[Math.floor(Math.random()*emptySquares.length)];
 }
 
@@ -317,6 +357,7 @@ function checkDiag() {
 }
 
 function clearBoard() {
+	turnNumber = 1;
 	//getElementByID for cross-browser support
 	document.getElementById("pos-0").innerHTML="";
 	document.getElementById("pos-0").className="pos row-0 col-0";

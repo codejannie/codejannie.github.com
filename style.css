@@ -1,7 +1,6 @@
 /* ---------------------------------------------------- */  
 /* GLOBAL 
 /* ---------------------------------------------------- */  
-
 body {  
 	font-family: Arial, sans-serif; 
 	background: #E8E8E8;
@@ -81,20 +80,19 @@ a:hover {
 #slideshow {  
 	width: 100%;  
 }  
-
 #slideshow ul {  
 	margin: 0;  
 	padding: 0;  
 	list-style-type: none;  
-height: 1%; /* IE fix */}  
-
+	height: 1%; /* IE fix */
+}
 #slideshow ul:after {  
 	content: ".";  
 	clear: both;  
 	display: block;  
 	height: 0;  
-visibility: hidden;}              
-
+	visibility: hidden;
+}
 /* ---------------------------------------------------- */  
 /* SLIDESHOW > SLIDES 
 /* ---------------------------------------------------- */  
@@ -102,23 +100,19 @@ visibility: hidden;}
 	overflow: hidden;  
 	width: 100%;
 	height: 400px;
-}  
-
+}
 #slideshow .slides ul {  
 	width: 400%;
 	float: left;
-}  
-
+}
 #slideshow .slides li {  
 	width: 21%;  
 	padding: 0 2%;
 	float: left;  
-}  
-
+}
 #slideshow .slides h2 {  
 	margin-top: 0;
-}  
-
+}
 /* ---------------------------------------------------- */  
 /* TIC-TAC-TOE GAMEBOARD
 /* ---------------------------------------------------- */  
@@ -136,6 +130,90 @@ button {
 	width: 40%;
 	float: left;
 }
+#robot-message {
+	width: 70%;
+	padding: 3% 5%;
+	margin: 10%;
+	border-radius: 10px;
+	background: white;
+	box-shadow: 0 2px 2px 2px lightgrey;
+}
+#robot-message:after {
+	z-index: 1;
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: absolute;
+	background: white;
+	box-shadow: 5px 5px 3px -1px lightgrey;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+}
+#robot-head {
+	width: 20%;
+	height: 65px;
+	margin: 1px 40%;
+	background: grey;
+}
+#robot-head .eye {
+	float: left;
+	width: 3%;
+	height: 5px;
+	margin-left: 31%;
+	margin-top: 20px;
+	background: white;
+}
+#robot-head .mouth {
+	float: left;
+	width: 60%;
+	height: 5px;
+	margin: 15px 20%;
+	background: white;
+}
+#robot-body {
+	width: 50%;
+	height: 200px;
+	margin: 0 25%;
+	background: grey;
+	font-family: cursive;
+}
+.robot-arm {
+	float: left;
+	width: 19%;
+	height: 100px;
+	background: grey;
+}
+#arm-1  {
+	margin-left: -20%;
+}
+#arm-1.arm-up {
+	margin-top: -25%;
+}
+#arm-1.arm-down {
+	margin-top: 0.5%;
+}
+#arm-2 {
+	margin-left: 101%;
+}
+#arm-2.arm-up {
+	margin-top: -108%;
+}
+#arm-2.arm-down {
+	margin-top: -83%;
+}
+#robot-record-wrapper {
+	float: left;
+	width: 60%;
+	height: 76%;
+	margin: 10% 20%;
+	color: white;
+}
+.robot-stats {
+	float: left;
+	width: 100%;
+}
 #game-board {
 	display: none;
 	width: 60%;
@@ -143,12 +221,44 @@ button {
 	margin-top: 30px;
 } 
 @media screen and (max-width: 768px) {
+	#nav {
+		display: none;
+	}
 	#game-robot,
 	#game-board {
 		width: 100%;
 	}
+	#robot-message {
+		float: left;
+		width: 30%;
+		padding: 3% 5%;
+		margin: 20px 5%;
+	}
+	#robot-message:after {
+		box-shadow: 3px -3px 3px -1px lightgrey;
+		left: 43%;
+		top: 203px;
+	}
+	#robot {
+		float: left;
+		width: 40%;
+		margin: 20px 5%;
+	}
+	#robot-head {
+		width: 40%;
+	}
+	#robot-body {
+		display: none;
+	}
 	button {
 		width: 48%;
+	}
+}
+@media screen and (max-width: 400px) {
+	#robot-message:after {
+		box-shadow: 3px -3px 3px -1px lightgrey;
+		left: 41%;
+		top: 203px;
 	}
 }
 .pos {
