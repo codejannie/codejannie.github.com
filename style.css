@@ -3,7 +3,6 @@
 /* ---------------------------------------------------- */  
 body {  
 	font-family: Arial, sans-serif; 
-	background: #E8E8E8;
 	color: #303030; 
 	margin: 0;
 }  
@@ -11,9 +10,6 @@ body {
 button,
 #robot-body,
 body h2 {
-	font-family: Courier, sans-serif; 
-	letter-spacing: 1px;
-	color: gray;
 	text-transform: uppercase;
 }
 #logo,
@@ -51,10 +47,6 @@ a:hover {
 /* ---------------------------------------------------- */  
 /* HEADER
 /* ---------------------------------------------------- */  
-#header {
-	background: white;
-	box-shadow: 0 2px 2px 2px lightgrey;
-}
 #header-wrapper {
 	padding: 12px 0;
 }
