@@ -3,6 +3,7 @@
 /* ---------------------------------------------------- */  
 body {  
 	font-family: Tahoma, sans-serif;
+	font-size: 15px;
 	color: #303030; 
 	margin: 0;
 }  
@@ -11,9 +12,7 @@ button,
 #robot-body,
 body h2 {
 	font-family: Cambria, Georgia, serif;
-	text-transform: uppercase;
 }
-#logo,
 #nav,
 button,
 body h2 {
@@ -27,8 +26,7 @@ p {
 }
 #header,
 #main {
-	float: left;
-	width: 100%;
+	padding: 30px 0;
 }
 #header-wrapper,
 #main-wrapper {
@@ -49,10 +47,11 @@ a:hover {
 /* HEADER
 /* ---------------------------------------------------- */  
 #header-wrapper {
-	padding: 12px 0;
+	text-align: center;
+	font-size: 17px;
 }
 #header ul li {
-	float: left;
+	display: inline;
 	padding-left: 12px;
 }
 @media screen and (max-width: 400px) {
