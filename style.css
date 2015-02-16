@@ -2,7 +2,7 @@
 /* GLOBAL 
 /* ---------------------------------------------------- */  
 body {  
-	font-family: Arial, sans-serif; 
+	font-family: Tahoma, sans-serif;
 	color: #303030; 
 	margin: 0;
 }  
@@ -10,6 +10,7 @@ body {
 button,
 #robot-body,
 body h2 {
+	font-family: Cambria, Georgia, serif;
 	text-transform: uppercase;
 }
 #logo,
@@ -49,14 +50,6 @@ a:hover {
 /* ---------------------------------------------------- */  
 #header-wrapper {
 	padding: 12px 0;
-}
-#header .logo {
-	float: left;
-}
-#header ul {
-	float: right;
-	padding: 0;
-	list-style: none;
 }
 #header ul li {
 	float: left;
