@@ -30,7 +30,7 @@ p {
 }
 #header-wrapper,
 #main-wrapper {
-	max-width: 1200px;
+	max-width: 800px;
 	margin: 0 auto;
 	line-height: 1.4em;  
 }
@@ -46,13 +46,16 @@ a:hover {
 /* ---------------------------------------------------- */  
 /* HEADER
 /* ---------------------------------------------------- */  
+#header {
+	box-shadow: 0 2px 4px lightgrey;
+}
 #header-wrapper {
 	text-align: center;
 	font-size: 17px;
 }
 #header ul li {
 	display: inline;
-	padding-left: 12px;
+	padding-right: 12px;
 }
 @media screen and (max-width: 400px) {
 	#header ul li {
@@ -62,6 +65,10 @@ a:hover {
 /* ---------------------------------------------------- */  
 /* SLIDESHOW 
 /* ---------------------------------------------------- */  
+#main-wrapper {
+	border: 1px solid grey;
+	padding: 20px;
+}
 #slideshow {  
 	width: 100%;  
 }  
@@ -91,8 +98,7 @@ a:hover {
 	float: left;
 }
 #slideshow .slides li {  
-	width: 21%;  
-	padding: 0 2%;
+	width: 25%;
 	float: left;  
 }
 #slideshow .slides h2 {  
@@ -103,6 +109,7 @@ a:hover {
 /* ---------------------------------------------------- */  
 #game-title {
 	height: 100px;
+	text-transform: uppercase;
 }
 button {
 	width:30%;
@@ -165,6 +172,7 @@ button {
 	height: 200px;
 	margin: 0 25%;
 	background: grey;
+
 }
 .robot-arm {
 	float: left;
