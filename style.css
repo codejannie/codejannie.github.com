@@ -105,6 +105,9 @@ a:hover {
 /* ---------------------------------------------------- */  
 #game-title {
 	height: 100px;
+}
+#game-title,
+#game-title button {
 	text-transform: uppercase;
 }
 button {
